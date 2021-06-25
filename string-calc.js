@@ -1,15 +1,32 @@
 function stringCalc(numbers)
 {
-
-    const result = numbers.split(',')
-    let r = 0
-    for (var i = 0; i < result.length; i++){
-        const number = result[i]
+    const n = numbers.split(/,|\n/g)
+    let result = 0
+    const negatives = 0
+    const fehler = "negatives not allowed: "
+    for (var i = 0; i < n.length; i++){
+        const number = n[i]
         const n2 = number.length===0?"0":number
         const numberToShow = parseInt(n2, 10)
-        r += numberToShow
+        if (numberToShow < 0)
+        {
+            negatives += numberToShow
+        }
+        else
+        {
+            result += numberToShow
+        }
+        
     }
-    return r
+    if (negatives = true)
+    {
+        return fehler + negatives
+    }
+    else
+    {
+        return result
+    }
+    
     
 
 }
