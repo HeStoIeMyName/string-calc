@@ -19,10 +19,16 @@ describe("stringCalc", () =>{
     it("should return a sum of numbers", () => {
         expect(stringCalc("1\n2,3")).toEqual(6)
     })
-    //it
-    //
-    it("should return 'Fehler'+ negatives, if negatives are in", () => {
-            expect(stringCalc("1,-1,2,-2").toEqual(fehler))
+    it("should return a sum of numbers with a delimiter" , () => {
+        expect(stringCalc("//;\n1;2")).toEqual(3)
+    })
+
+    // it("should return negatives, if negatives are in", () => {
+    //     expect(stringCalc("1,-1,2,-2")).toEqual("negatives not allowed: -1, -2")
+    // })
+
+    it("should ignore numbers > 1000 ", () => {
+        expect(stringCalc("2,1001")).toEqual(2)
     })
 })
 

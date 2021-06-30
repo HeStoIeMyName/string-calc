@@ -1,31 +1,39 @@
 function stringCalc(numbers)
 {
-    const n = numbers.split(/,|\n/g)
+    const n = numbers.split(/\D+/g)
     let result = 0
-    const negatives = 0
-    const fehler = "negatives not allowed: "
+    var negatives = false;
+    
     for (var i = 0; i < n.length; i++){
         const number = n[i]
         const n2 = number.length===0?"0":number
         const numberToShow = parseInt(n2, 10)
-        if (numberToShow < 0)
+        
+        // if(numberToShow < 0)
+        // {
+        //     negatives = true
+        // }
+        // else
+        // {
+        //     negatives = false
+        // }
+        
+        result += numberToShow 
+        if (numberToShow > 1000)
         {
-            negatives += numberToShow
-        }
-        else
-        {
-            result += numberToShow
-        }
+            result -= numberToShow
+        } 
         
     }
-    if (negatives = true)
-    {
-        return fehler + negatives
-    }
-    else
-    {
+    // if(negatives === true)
+    // {
+    //     return "negatives not allowed: "
+    // }
+    // else
+    // {
         return result
-    }
+    // }
+        
     
     
 
@@ -33,3 +41,5 @@ function stringCalc(numbers)
 module.exports = {
     stringCalc
 }
+
+
