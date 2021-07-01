@@ -23,9 +23,9 @@ describe("stringCalc", () =>{
         expect(stringCalc("//;\n1;2")).toEqual(3)
     })
 
-    // it("should return negatives, if negatives are in", () => {
-    //     expect(stringCalc("1,-1,2,-2")).toEqual("negatives not allowed: -1, -2")
-    // })
+    it("should return negatives, if negatives are in", () => {
+        expect(stringCalc("1,-1,2,-2")).toEqual("negatives not allowed: -1,-2")
+    })
 
     it("should ignore numbers > 1000 ", () => {
         expect(stringCalc("2,1001")).toEqual(2)

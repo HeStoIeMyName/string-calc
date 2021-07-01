@@ -1,22 +1,18 @@
 function stringCalc(numbers)
 {
-    const n = numbers.split(/\D+/g)
+    const n = numbers.split(/[^\d+-]+/g)
     let result = 0
-    var negatives = false;
+    const negativeNumbers = []
     
     for (var i = 0; i < n.length; i++){
         const number = n[i]
         const n2 = number.length===0?"0":number
         const numberToShow = parseInt(n2, 10)
         
-        // if(numberToShow < 0)
-        // {
-        //     negatives = true
-        // }
-        // else
-        // {
-        //     negatives = false
-        // }
+        if(numberToShow < 0)
+        {
+            negativeNumbers.push(numberToShow)
+        }
         
         result += numberToShow 
         if (numberToShow > 1000)
@@ -25,14 +21,14 @@ function stringCalc(numbers)
         } 
         
     }
-    // if(negatives === true)
-    // {
-    //     return "negatives not allowed: "
-    // }
-    // else
-    // {
+    if(negativeNumbers.length > 0)
+    {
+        return "negatives not allowed: " + negativeNumbers
+    }
+    else
+    {
         return result
-    // }
+    }
         
     
     
